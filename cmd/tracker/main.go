@@ -14,6 +14,7 @@ func main() {
 
 	// дневная активность
 	input := []string{
+
 		"678,0h50m",
 		"792,1h14m",
 		"1078,1h30m",
@@ -41,6 +42,7 @@ func main() {
 
 	// тренировки
 	trainings := []string{
+
 		"3456,Ходьба,3h00m",
 		"something is wrong",
 		"678,Бег,0h5m",
