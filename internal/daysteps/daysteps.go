@@ -19,9 +19,12 @@ const (
 
 func parsePackage(data string) (int, time.Duration, error) {
 	// TODO: реализовать функцию
-
-	parts := strings.Split(data, ",")
+	CleanData := strings.ReplaceAll(data, " ", "")
+	parts := strings.Split(CleanData, ",")
 	if len(parts) != 2 {
+		return 0, 0, fmt.Errorf("")
+	}
+	if CleanData != data {
 		return 0, 0, fmt.Errorf("")
 	}
 
@@ -39,6 +42,9 @@ func parsePackage(data string) (int, time.Duration, error) {
 	duration, err := time.ParseDuration(durationStr)
 	if err != nil {
 		return 0, 0, fmt.Errorf("ошибка парсинга продолжительности: %v", err)
+	}
+	if duration <= 0 {
+		return 0, 0, fmt.Errorf("продолжительность должна быть положительной")
 	}
 	return steps, duration, nil
 }
